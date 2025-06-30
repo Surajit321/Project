@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone Number</th>
+      <th>Appointment Date & Time</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appt of appointments">
+      <td>{{ appt.firstName }}</td>
+      <td>{{ appt.lastName }}</td>
+      <td>{{ appt.phone }}</td>
+      <td>{{ appt.dateTime }}</td>
+      <td><span [ngClass]="getStatusClass(appt.status)">{{ appt.status }}</span></td>
+      <td>
+        <button class="pay">Pay Now</button>
+        <button class="book" [disabled]="appt.status === 'Booked'">{{ appt.status === 'Completed' ? 'Re-Book' : 'Book Now' }}</button>
+        <button class="delete">🗑️</button>
+        <button class="view">👁️</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

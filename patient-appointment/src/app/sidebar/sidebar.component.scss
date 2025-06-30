@@ -1,0 +1,75 @@
+.sidebar {
+  background: #5D3FD3;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+  overflow: hidden;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    padding-left: 60px;
+    padding-right: 60px; 
+  }
+
+  .menu {
+      flex-grow: 1;
+
+      .menu-item {
+          margin: 20px 0;
+          cursor: pointer;
+
+          &.active {
+              font-weight: bold;
+          }
+      }
+  }
+  
+
+  .profile {
+
+    .user-info{
+        display: flex;
+        vertical-align:middle;
+    }
+    
+    img {
+      width: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    .email {
+      font-size: 12px;
+    }
+
+    .logout {
+      margin-top: 10px;
+      background: #fff;
+      color: #5D3FD3;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+    .menu-item {
+      font-size: 0;
+    }
+  }
+}

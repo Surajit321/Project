@@ -1,0 +1,62 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  .status-open {
+    color: green;
+    border: 1px solid green;
+    padding: 2px 6px;
+    border-radius: 12px;
+  }
+
+  .status-booked {
+    color: orange;
+    border: 1px solid orange;
+    padding: 2px 6px;
+    border-radius: 12px;
+  }
+
+  .status-completed {
+    color: red;
+    border: 1px solid red;
+    padding: 2px 6px;
+    border-radius: 12px;
+  }
+
+  .pay, .book, .delete, .view {
+    margin-right: 5px;
+    padding: 4px 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .pay, .book {
+    background: #5D3FD3;
+    color: #fff;
+  }
+
+  .delete {
+    background: transparent;
+    color: red;
+  }
+
+  .view {
+    background: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  table td, table th {
+    font-size: 12px;
+    padding: 6px;
+  }
+}

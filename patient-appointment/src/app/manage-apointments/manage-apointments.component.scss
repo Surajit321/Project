@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 10px;
+  }
+}
