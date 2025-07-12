@@ -1,4 +1,5 @@
 {
+  "defaultProject": "patient-appointment",
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
@@ -17,7 +18,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/patient-appointment",
+            "outputPath": "dist/patient-appointment/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
