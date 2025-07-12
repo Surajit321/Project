@@ -1,5 +1,5 @@
 [build]
-  command = "ng build"
+  command = "npx ng build --prod"
   publish = "dist/patient-appointment"
 
 [[redirects]]
