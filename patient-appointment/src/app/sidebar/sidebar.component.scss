@@ -27,6 +27,18 @@
     .menu-item {
       margin: 20px 0;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .icon {
+        font-size: 18px;
+        min-width: 20px;
+      }
+
+      .text {
+        flex: 1;
+      }
 
       &.active {
         font-weight: bold;
