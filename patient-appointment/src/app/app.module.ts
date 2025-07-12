@@ -7,6 +7,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { AppointmentTableComponent } from './appointment-table/appointment-table.component';
 import { ManageApointmentsComponent } from './manage-apointments/manage-apointments.component';
+import { AddAppointmentComponent } from './forms/add-appointment/add-appointment.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { ManageApointmentsComponent } from './manage-apointments/manage-apointme
     SidebarComponent,
     HeaderComponent,
     AppointmentTableComponent,
-    ManageApointmentsComponent
+    ManageApointmentsComponent,
+    AddAppointmentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

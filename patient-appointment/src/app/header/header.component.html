@@ -2,6 +2,11 @@
   <h1>Manage Appointments</h1>
   <div class="actions">
     <!-- <input [(ngModel)]="searchText" placeholder="Search"> -->
-    <button class="add-btn">+ Add Appointment</button>
+    <button class="add-btn" (click)="addPatient()">+ Add Appointment</button>
+    <ng-container *ngIf="isFormVisible">
+      <div class="add_appointment">
+        <app-add-appointment (addPatientModalClose)="closeAddPatientModal()"></app-add-appointment>
+      </div>
+    </ng-container>
   </div>
 </div>

@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-searchText = '';
+  isFormVisible: boolean = false;
+  addPatient(): void {
+    console.log('Add Patient button clicked');
+    this.isFormVisible = true
+  }
+
+  closeAddPatientModal(): void {
+    this.isFormVisible = false;
+  }
+
 }

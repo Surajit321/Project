@@ -13,14 +13,13 @@
     <tr *ngFor="let appt of appointments">
       <td>{{ appt.firstName }}</td>
       <td>{{ appt.lastName }}</td>
-      <td>{{ appt.phone }}</td>
+      <td>{{ appt.phoneNo }}</td>
       <td>{{ appt.dateTime }}</td>
       <td><span [ngClass]="getStatusClass(appt.status)">{{ appt.status }}</span></td>
       <td>
-        <button class="pay">Pay Now</button>
-        <button class="book" [disabled]="appt.status === 'Booked'">{{ appt.status === 'Completed' ? 'Re-Book' : 'Book Now' }}</button>
-        <button class="delete">🗑️</button>
-        <button class="view">👁️</button>
+        <button *ngIf="appt.status == 'Open'"  class="pay">Mark Completed</button>
+        <button *ngIf="appt.status == 'Booked'"  class="pay">Mark Open</button>
+        <button *ngIf="appt.status == 'Completed'"  class="pay">Archive</button>
       </td>
     </tr>
   </tbody>

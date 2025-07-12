@@ -1,0 +1,32 @@
+<!-- Modal Overlay -->
+<div class="modal-overlay" (click)="closeModal()"></div>
+
+<!-- Modal Content -->
+<div class="modal">
+    <div class="modal-header">
+        <h2>Add Appointment</h2>
+        <button class="close-btn" (click)="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <form #addAppointmentForm="ngForm" (ngSubmit)="onSubmit(addAppointmentForm)">
+            <div>
+                <label>First Name:</label>
+                <input name="firstName" [(ngModel)]="newAppointment.firstName" required />
+            </div>
+            <div>
+                <label>Last Name:</label>
+                <input name="lastName" [(ngModel)]="newAppointment.lastName" required />
+            </div>
+            <div>
+                <label>Phone No:</label>
+                <input name="phoneNo" [(ngModel)]="newAppointment.phoneNo" required pattern="^\+91 \d{10}$" />
+            </div>
+            <div>
+                <label>Date & Time:</label>
+                <input name="dateTime" [(ngModel)]="newAppointment.dateTime" required />
+            </div>
+
+            <button type="submit" [disabled]="!addAppointmentForm.valid">Save</button>
+        </form>
+    </div>
+</div>
