@@ -1,6 +1,6 @@
 [build]
-  command = "npx ng build --prod"
-  publish = "dist/patient-/browser"
+  command = "npm run build"
+  publish = "dist/patient-appointment/browser"
 
 [[redirects]]
   from = "/*"
