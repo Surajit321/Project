@@ -1,11 +1,11 @@
 .sidebar {
-  background: #5D3FD3;
+  background: #5d3fd3;
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 40px 20px 10px;
   height: 100%;
   overflow: hidden;
 
@@ -15,31 +15,44 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 1);
-    padding-left: 60px;
-    padding-right: 60px; 
+    padding-left: 20px;
+    padding-right: 40px;
+    text-align: left;
   }
 
   .menu {
-      flex-grow: 1;
+    flex-grow: 1;
+    text-align: left;
 
-      .menu-item {
-          margin: 20px 0;
-          cursor: pointer;
+    .menu-item {
+      margin: 20px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-          &.active {
-              font-weight: bold;
-          }
+      .icon {
+        font-size: 18px;
+        min-width: 20px;
+        color: white;
       }
+
+      .text {
+        flex: 1;
+      }
+
+      &.active {
+        font-weight: bold;
+      }
+    }
   }
-  
 
   .profile {
-
-    .user-info{
-        display: flex;
-        vertical-align:middle;
+    .user-info {
+      display: flex;
+      vertical-align: middle;
     }
-    
+
     img {
       width: 40px;
       border-radius: 50%;
@@ -57,7 +70,7 @@
     .logout {
       margin-top: 10px;
       background: #fff;
-      color: #5D3FD3;
+      color: #5d3fd3;
       border: none;
       padding: 5px 10px;
       cursor: pointer;
