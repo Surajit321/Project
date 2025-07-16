@@ -1,12 +1,12 @@
 import { RxStomp } from '@stomp/rx-stomp';
 
-// const LOCAL_BACKEND_URL = 'ws://localhost:8080/ws';
-const BACKEND_URL = 'ws://patientappointmentservice.onrender.com/ws';
+// const LOCAL_BROKER_URL = 'ws://localhost:8080/ws';
+const BROKER_URL = 'wss://patientappointmentservice.onrender.com/ws';
 export const createStompClient = () => {
   const rxStomp = new RxStomp();
 
   rxStomp.configure({
-    brokerURL: `ws://${BACKEND_URL}/ws`,
+    brokerURL: BROKER_URL,
     connectHeaders: {},
     heartbeatIncoming: 0,
     heartbeatOutgoing: 20000,
