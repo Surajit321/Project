@@ -50,7 +50,7 @@ export class AddAppointmentComponent {
       lastName: '',
       phoneNo: '',
       dateTime: '',
-      status: STATUS.Open
+      status: STATUS.Booked
     };
   }
 }
