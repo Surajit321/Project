@@ -11,6 +11,8 @@ import { createStompClient } from '../configuration/WebSocketConfig';
 export class NewPatientService {
   private stompClient!: RxStomp;
   private patientDetails$: Subject<PatientDetails> = new Subject<PatientDetails>();
+  private patientUpdated$: Subject<PatientDetails> = new Subject<PatientDetails>();
+  private patientDeleted$: Subject<string> = new Subject<string>();
   private readonly TOPIC: string = "/topic/patientCreated";
 
   constructor(private readonly patientDataService: PatientDataService) { }
@@ -25,6 +27,14 @@ export class NewPatientService {
     this.stompClient.watch(this.TOPIC).subscribe(message => {
       this.patientDetails$.next(JSON.parse(message.body));
     });
+
+    this.stompClient.watch('/topic/patientUpdated').subscribe(message => {
+      this.patientUpdated$.next(JSON.parse(message.body));
+    })
+
+    this.stompClient.watch('/topic/patientDeleted').subscribe(message => {
+      this.patientDeleted$.next(JSON.parse(message.body));
+    })
   }
 
   public setPatientDetails(patientDetails: PatientDetails) {
@@ -34,4 +44,12 @@ export class NewPatientService {
   public getPatientDetails() {
     return this.patientDetails$.asObservable();
   }
+
+  public getPatientUpdated() {
+    return this.patientUpdated$.asObservable();
+  }
+
+  public getPatientDeleted() {
+    return this.patientDeleted$.asObservable();
+  } 
 }

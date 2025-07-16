@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
 export class PatientService {
 
   private readonly BASE_URL = 'https://patientappointmentservice.onrender.com';
-  // private readonly localBaseUrl = 'http://localhost:8080';
-  private readonly GET_ALL_PATIENTS_URL = `${this.BASE_URL}/appointments/patients`;
-  private readonly CREATE_PATIENT_RECORD_URL = `${this.BASE_URL}/appointments/patients`;
+  private readonly localBaseUrl = 'http://localhost:8080';
+  private readonly GET_ALL_PATIENTS_URL = `${this.localBaseUrl}/appointments/patients`;
+  private readonly CREATE_PATIENT_RECORD_URL = `${this.localBaseUrl}/appointments/patients`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,5 +21,9 @@ export class PatientService {
 
   public addPatient(patientDetails: PatientDetails): Observable<PatientDetails> {
     return this.httpClient.post<PatientDetails>(this.CREATE_PATIENT_RECORD_URL, patientDetails);
+  }
+
+  public updatePatient(patientDetails: PatientDetails): Observable<PatientDetails> {
+    return this.httpClient.put<PatientDetails>(`${this.CREATE_PATIENT_RECORD_URL}/${patientDetails.id}`, patientDetails);
   }
 }

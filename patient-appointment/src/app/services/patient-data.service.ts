@@ -17,5 +17,8 @@ export class PatientDataService {
   public addPatient(patientDetails: PatientDetails): Observable<PatientDetails> {
     return this.patientService.addPatient(patientDetails);
   }
-  
+
+  public updatePatient(patientDetails: PatientDetails): Observable<PatientDetails> {
+    return this.patientService.updatePatient(patientDetails);
+  }
 }

@@ -25,6 +25,7 @@ export class ManageApointmentsComponent implements OnInit {
     this.getAllAppointments();
     this.newPatientService.init();
     this.getNewAppointment();
+    this.getUpdatedAppointment();
   }
 
   private getAllAppointments(): void {
@@ -49,5 +50,28 @@ export class ManageApointmentsComponent implements OnInit {
         console.error('Error receiving new appointment:', error);
       }
     });
+  }
+
+  private getUpdatedAppointment(): void {
+    this.newPatientService.getPatientUpdated().subscribe({
+      next: (updatedPatient: PatientDetails) => {
+        const idx = this.appointments.findIndex(item => item.id === updatedPatient.id);
+        if (idx !== -1) {
+          this.appointments[idx] = updatedPatient;
+        }
+      },
+      error: (error) => {
+        console.error('Error receiving updated appointment:', error);
+      }
+    });
+
+    this.newPatientService.getPatientDeleted().subscribe({
+      next: (deletedPatientId: string) => {
+        this.appointments = this.appointments.filter(item => item.id !== deletedPatientId);
+      }
+      , error: (error) => {
+        console.error('Error receiving deleted appointment:', error);
+      }
+    })
   }
 }

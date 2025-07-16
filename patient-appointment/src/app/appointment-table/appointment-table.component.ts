@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { PatientDetails } from '../data-models/patientDetails';
+import { PatientDataService } from '../services/patient-data.service';
 
 @Component({
   selector: 'app-appointment-table',
@@ -6,7 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./appointment-table.component.scss']
 })
 export class AppointmentTableComponent {
-@Input() appointments: any = [];
+  @Input() appointments: any = [];
+
+  constructor(private readonly patientDataService: PatientDataService) { }
 
   getStatusClass(status: string) {
     switch (status) {
@@ -15,5 +19,9 @@ export class AppointmentTableComponent {
       case 'Completed': return 'status-completed';
       default: return '';
     }
+  }
+
+  public updateRecord(patientDetails: PatientDetails): void {
+    this.patientDataService.updatePatient(patientDetails).subscribe();
   }
 }

@@ -17,9 +17,24 @@
       <td>{{ appt.dateTime }}</td>
       <td><span [ngClass]="getStatusClass(appt.status)">{{ appt.status }}</span></td>
       <td>
-        <button *ngIf="appt.status == 'Open'"  class="pay">Mark Completed</button>
-        <button *ngIf="appt.status == 'Booked'"  class="pay">Mark Open</button>
-        <button *ngIf="appt.status == 'Completed'"  class="pay">Archive</button>
+        <button 
+          class="pay" 
+          *ngIf="appt.status == 'Open'" 
+          (click)="updateRecord(appt)">
+          Mark Completed
+        </button>
+        <button 
+          class="pay" 
+          *ngIf="appt.status == 'Booked'" 
+          (click)="updateRecord(appt)">
+          Mark Open
+        </button>
+        <button 
+          class="pay" 
+          *ngIf="appt.status == 'Completed'" 
+          (click)="updateRecord(appt)">
+          Archive
+        </button>
       </td>
     </tr>
   </tbody>
