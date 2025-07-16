@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientDetails, STATUS } from '../data-models/patientDetails';
 import { PatientDataService } from '../services/patient-data.service';
+import { NewPatientService } from '../forms/new-patient.service';
 
 @Component({
   selector: 'app-manage-apointments',
@@ -18,10 +19,12 @@ export class ManageApointmentsComponent implements OnInit {
   ];
 
 
-  constructor(private readonly patientDataService: PatientDataService) { }
+  constructor(private readonly newPatientService: NewPatientService, private readonly patientDataService: PatientDataService) { }
 
   ngOnInit(): void {
     this.getAllAppointments();
+    this.newPatientService.init();
+    this.getNewAppointment();
   }
 
   private getAllAppointments(): void {
@@ -35,5 +38,16 @@ export class ManageApointmentsComponent implements OnInit {
         this.appointments = this.defaultAppointments;
       }
     })
+  }
+
+  private getNewAppointment(): void {
+    this.newPatientService.getPatientDetails().subscribe({
+      next: (patientDetails: PatientDetails) => {
+        this.appointments.push(patientDetails);
+      },
+      error: (error) => {
+        console.error('Error receiving new appointment:', error);
+      }
+    });
   }
 }
