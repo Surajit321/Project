@@ -6,7 +6,7 @@ export const createStompClient = () => {
   const rxStomp = new RxStomp();
 
   rxStomp.configure({
-    brokerURL: LOCAL_BROKER_URL,
+    brokerURL: BROKER_URL,
     connectHeaders: {},
     heartbeatIncoming: 0,
     heartbeatOutgoing: 20000,

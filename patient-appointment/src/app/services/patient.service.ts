@@ -10,8 +10,8 @@ export class PatientService {
 
   private readonly BASE_URL = 'https://patientappointmentservice.onrender.com';
   private readonly localBaseUrl = 'http://localhost:8080';
-  private readonly GET_ALL_PATIENTS_URL = `${this.localBaseUrl}/appointments/patients`;
-  private readonly CREATE_PATIENT_RECORD_URL = `${this.localBaseUrl}/appointments/patients`;
+  private readonly GET_ALL_PATIENTS_URL = `${this.BASE_URL}/appointments/patients`;
+  private readonly CREATE_PATIENT_RECORD_URL = `${this.BASE_URL}/appointments/patients`;
 
   constructor(private httpClient: HttpClient) { }
 
